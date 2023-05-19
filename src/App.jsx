@@ -3,6 +3,7 @@ import React from 'react';
 import { Outlet } from 'react-router-dom';
 import Navigation from './Components/Shared/Navbar/Navbar';
 import Foot from './Components/Shared/Footer/Footer';
+import { ToastContainer } from 'react-toastify';
 
 const App = () => {
   return (
@@ -10,6 +11,7 @@ const App = () => {
     <Navigation></Navigation>
       <Outlet></Outlet>
       <Foot></Foot>
+      <ToastContainer />
     </div>
   );
 };

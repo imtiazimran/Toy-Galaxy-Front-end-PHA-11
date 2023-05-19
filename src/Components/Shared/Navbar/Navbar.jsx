@@ -5,13 +5,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Navigation = () => {
-    <div className="gap-8">
-        <Link to='/'>Home</Link>
-        <Link to="/allToys">All Toy's</Link>
-        <Link to="/myToys">My Toy's</Link>
-        <Link to="/addToys">Add Toy's</Link>
-        <Link to="/blogs">Blogs</Link>
-    </div>
     return (
         <Navbar
             fluid={true}
@@ -29,7 +22,7 @@ const Navigation = () => {
             </Navbar.Brand>
             <div className="flex md:order-2">
                 <Avatar img="https://flowbite.com/docs/images/people/profile-picture-5.jpg" rounded={true} />
-                <Navbar.Toggle />
+                
             </div>
             <Navbar.Collapse>
                 <Navbar.Link
@@ -49,6 +42,9 @@ const Navigation = () => {
                 </Navbar.Link>
                 <Navbar.Link href="/blogs">
                     Blogs
+                </Navbar.Link>
+                <Navbar.Link href="/login">
+                    login
                 </Navbar.Link>
             </Navbar.Collapse>
         </Navbar>
