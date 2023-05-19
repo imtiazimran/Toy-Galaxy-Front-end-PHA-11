@@ -29,7 +29,7 @@ const AddToy = () => {
             details
         }
 
-        fetch('http://localhost:9999/insartItem', {
+        fetch('http://localhost:9999/insertItem', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
