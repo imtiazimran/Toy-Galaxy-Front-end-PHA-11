@@ -1,10 +1,19 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable no-unused-vars */
-import { Avatar, Dropdown, Navbar } from 'flowbite-react';
-import React from 'react';
+import { Avatar, Button, Navbar } from 'flowbite-react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../Authorization/AuthProvider';
+import { IconBase } from 'react-icons';
 import { Link } from 'react-router-dom';
 
 const Navigation = () => {
+
+    const { user, logOut } = useContext(AuthContext)
+
+    const singOut = () => {
+        logOut()
+    }
+
     return (
         <Navbar
             fluid={true}
@@ -21,8 +30,22 @@ const Navigation = () => {
                 </span>
             </Navbar.Brand>
             <div className="flex md:order-2">
-                <Avatar img="https://flowbite.com/docs/images/people/profile-picture-5.jpg" rounded={true} />
-                
+                {
+                    user ? <div className='flex gap-5 flex-row-reverse'>
+                        {user.photoURL ? (
+                            <Avatar img={user.photoURL} rounded={true} />
+                        ) : (
+                            <Avatar rounded={true} />
+                        )}
+                        <Button onClick={singOut} gradientMonochrome="failure">
+                            Log Out
+                        </Button>
+                    </div>
+                        : <Button gradientMonochrome="success">
+                            <Link to="/login">Log In</Link>
+                        </Button>
+                }
+
             </div>
             <Navbar.Collapse>
                 <Navbar.Link
@@ -43,9 +66,7 @@ const Navigation = () => {
                 <Navbar.Link href="/blogs">
                     Blogs
                 </Navbar.Link>
-                <Navbar.Link href="/login">
-                    login
-                </Navbar.Link>
+
             </Navbar.Collapse>
         </Navbar>
 

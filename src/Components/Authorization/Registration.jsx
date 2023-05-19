@@ -15,10 +15,11 @@ const Registration = () => {
   const handleSubmit = e =>{
     e.preventDefault()
     const form = e.target;
+    const photoURL = form.photoURL.value
     const name = form.name.value
     const email = form.email.value
     const password = form.password.value
-    console.log(name, email, password)
+    console.log(name, email, password, photoURL)
 
     registration(email, password)
     .then(res =>{
@@ -43,6 +44,21 @@ const Registration = () => {
         <div className="px-8 py-6">
           <h2 className="text-3xl font-bold mb-4">Login</h2>
           <form onSubmit={handleSubmit}>
+            <div className="mb-4">
+              <label
+                className="block text-gray-700 text-sm font-bold mb-2"
+                htmlFor="photoURL"
+              >
+                Name
+              </label>
+              <input
+              name="photoURL"
+                className="w-full px-3 py-2 border border-gray-400 rounded focus:outline-none focus:border-blue-500"
+                id="photoURL"
+                type="text"
+                placeholder="Your Name"
+              />
+            </div>
             <div className="mb-4">
               <label
                 className="block text-gray-700 text-sm font-bold mb-2"
