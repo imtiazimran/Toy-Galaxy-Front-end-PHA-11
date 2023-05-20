@@ -55,9 +55,11 @@ const Navigation = () => {
                 <ActiveLink to="/allToys">
                     All Toy
                 </ActiveLink>
-                <ActiveLink to="/myToys">
-                    My Toy
-                </ActiveLink>
+                {
+                    user && <ActiveLink to="/myToys">
+                        My Toy
+                    </ActiveLink>
+                }
                 <ActiveLink to="/addToys">
                     Add Toy
                 </ActiveLink>

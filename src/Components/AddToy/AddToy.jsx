@@ -50,7 +50,7 @@ const AddToy = () => {
                 }
             })
             .catch(error => {
-                console.error(error);
+                console.error(error.code);
                 toast.error("An error occurred while inserting the data.", {
                     position: toast.POSITION.TOP_CENTER
                 });

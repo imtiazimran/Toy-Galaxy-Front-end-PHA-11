@@ -7,13 +7,14 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import HomePage from './Components/Home/HomePage.jsx';
-import Error404 from './Components/Shared/Navbar/Error/Error.jsx';
 import AddToy from './Components/AddToy/AddToy.jsx';
 import LoginForm from './Components/Authorization/Login.jsx';
 import Registration from './Components/Authorization/Registration.jsx';
 import AuthProvider from './Components/Authorization/AuthProvider.jsx';
 import AllToys from './Components/AllToys/AllToys.jsx';
 import ViewDetails from './Components/AllToys/ViewDetails.jsx';
+import MyToys from './Components/MyToys/MyToys.jsx';
+import ErrorPage from './Components/Home/Error/Error.jsx';
 
 const router = createBrowserRouter([
   {
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
         loader: ({params}) => fetch(`http://localhost:9999/insertItem/${params.id}`)
       },
       {
+        path: "/myToys",
+        element: <MyToys></MyToys>
+      },
+      {
         path: "/login",
         element: <LoginForm></LoginForm>
       },
@@ -50,7 +55,7 @@ const router = createBrowserRouter([
   },
   {
     path: "*",
-    element: <Error404></Error404>
+    element:<ErrorPage></ErrorPage>
   }
 ]);
 
