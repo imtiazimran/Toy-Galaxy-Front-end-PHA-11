@@ -1,8 +1,12 @@
-import { Label, Select, TextInput, Textarea,  } from "flowbite-react";
+import { Label, Select, TextInput, Textarea, } from "flowbite-react";
+import { useContext } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import { AuthContext } from "../Authorization/AuthProvider";
 
 const AddToy = () => {
+
+    const { user } = useContext(AuthContext)
 
     const handleSubmit = e => {
         e.preventDefault()
@@ -36,21 +40,21 @@ const AddToy = () => {
             },
             body: JSON.stringify(addToy)
         })
-        .then(res =>res.json())
-        .then(data => {
-            console.log(data.acknowledged)
-            if (data.acknowledged) {
-              toast.success("Item Added Successfully", {
-                position: toast.POSITION.TOP_CENTER
-              });
-            }
-          })
-          .catch(error => {
-            console.error(error);
-            toast.error("An error occurred while inserting the data.", {
-              position: toast.POSITION.TOP_CENTER
+            .then(res => res.json())
+            .then(data => {
+                console.log(data.acknowledged)
+                if (data.acknowledged) {
+                    toast.success("Item Added Successfully", {
+                        position: toast.POSITION.TOP_CENTER
+                    });
+                }
+            })
+            .catch(error => {
+                console.error(error);
+                toast.error("An error occurred while inserting the data.", {
+                    position: toast.POSITION.TOP_CENTER
+                });
             });
-          });
 
 
 
@@ -100,6 +104,7 @@ const AddToy = () => {
                             />
                         </div>
                         <TextInput
+                            defaultValue={user.displayName}
                             name="sellerName"
                             id="input3"
                             type="text"
@@ -118,6 +123,7 @@ const AddToy = () => {
                             name="sellarEmail"
                             id="input4"
                             type="email"
+                            defaultValue={user.email}
                             required={true}
                         />
                     </div>
@@ -203,7 +209,7 @@ const AddToy = () => {
                     <Textarea
                         name="details"
                         id="comment"
-                        placeholder="Leave a comment..."
+                        placeholder="Write Something About Your Product . . . . . . . . . ."
                         required={true}
                         rows={4}
                     />

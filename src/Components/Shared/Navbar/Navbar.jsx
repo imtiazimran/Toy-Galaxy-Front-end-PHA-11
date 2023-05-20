@@ -1,10 +1,11 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable no-unused-vars */
+import './../../../App.css'
 import { Avatar, Button, Navbar } from 'flowbite-react';
 import React, { useContext } from 'react';
 import { AuthContext } from '../../Authorization/AuthProvider';
-import { IconBase } from 'react-icons';
 import { Link } from 'react-router-dom';
+import ActiveLink from './ActiveLink';
 
 const Navigation = () => {
 
@@ -48,24 +49,21 @@ const Navigation = () => {
 
             </div>
             <Navbar.Collapse>
-                <Navbar.Link
-                    href="/"
-                    active={true}
-                >
+                <ActiveLink to="/">
                     Home
-                </Navbar.Link>
-                <Navbar.Link href="/allToys">
+                </ActiveLink>
+                <ActiveLink to="/allToys">
                     All Toy
-                </Navbar.Link>
-                <Navbar.Link href="/myToys">
+                </ActiveLink>
+                <ActiveLink to="/myToys">
                     My Toy
-                </Navbar.Link>
-                <Navbar.Link href="/addToys">
+                </ActiveLink>
+                <ActiveLink to="/addToys">
                     Add Toy
-                </Navbar.Link>
-                <Navbar.Link href="/blogs">
+                </ActiveLink>
+                <ActiveLink to="/blogs">
                     Blogs
-                </Navbar.Link>
+                </ActiveLink>
 
             </Navbar.Collapse>
         </Navbar>

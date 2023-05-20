@@ -1,4 +1,6 @@
+/* eslint-disable react/prop-types */
 import { Button, Table } from "flowbite-react";
+import { Link } from "react-router-dom";
 
 const SingleToy = ({ toy }) => {
 
@@ -8,6 +10,7 @@ const SingleToy = ({ toy }) => {
         category,
         price,
         qty,
+        _id
     } = toy
     return (
         <Table.Body className="divide-y">
@@ -29,7 +32,7 @@ const SingleToy = ({ toy }) => {
                     {qty}
                 </Table.Cell>
                 <Button pill={true} gradientMonochrome="purple">
-                    View Details
+                    <Link to={`/toyDetails/${_id}`}>View Details</Link>
                 </Button>
             </Table.Row>
         </Table.Body>

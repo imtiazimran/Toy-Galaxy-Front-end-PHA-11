@@ -13,6 +13,7 @@ import LoginForm from './Components/Authorization/Login.jsx';
 import Registration from './Components/Authorization/Registration.jsx';
 import AuthProvider from './Components/Authorization/AuthProvider.jsx';
 import AllToys from './Components/AllToys/AllToys.jsx';
+import ViewDetails from './Components/AllToys/ViewDetails.jsx';
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,11 @@ const router = createBrowserRouter([
         path: "/allToys",
         element: <AllToys></AllToys>,
         loader: () => fetch('http://localhost:9999/insertItem')
+      },
+      {
+        path: "/toyDetails/:id",
+        element: <ViewDetails></ViewDetails>,
+        loader: ({params}) => fetch(`http://localhost:9999/insertItem/${params.id}`)
       },
       {
         path: "/login",
