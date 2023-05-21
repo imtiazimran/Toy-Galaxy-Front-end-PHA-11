@@ -1,6 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable no-unused-vars */
-import './../../../App.css'
 import { Avatar, Button, Navbar } from 'flowbite-react';
 import React, { useContext } from 'react';
 import { AuthContext } from '../../Authorization/AuthProvider';
@@ -46,7 +45,7 @@ const Navigation = () => {
                             <Link to="/login">Log In</Link>
                         </Button>
                 }
-
+                <Navbar.Toggle />
             </div>
             <Navbar.Collapse>
                 <ActiveLink to="/">
@@ -68,6 +67,7 @@ const Navigation = () => {
                 </ActiveLink>
 
             </Navbar.Collapse>
+
         </Navbar>
 
     );
