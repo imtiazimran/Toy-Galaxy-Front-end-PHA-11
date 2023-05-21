@@ -5,6 +5,7 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../../Authorization/AuthProvider';
 import { Link } from 'react-router-dom';
 import ActiveLink from './ActiveLink';
+import './../../../App.css'
 
 const Navigation = () => {
 

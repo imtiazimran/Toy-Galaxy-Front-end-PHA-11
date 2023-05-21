@@ -8,7 +8,6 @@ import { Spinner } from "flowbite-react";
 const PriveteRoute = ({children}) => {
     
     const from = useLocation()
-    console.log(from)
 
     const {user, isLoading} = useContext(AuthContext)
 

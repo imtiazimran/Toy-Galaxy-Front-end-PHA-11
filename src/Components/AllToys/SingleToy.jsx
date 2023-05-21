@@ -71,7 +71,7 @@ const SingleToy = ({ toy }) => {
                     <Table.Cell>
                         {qty}
                     </Table.Cell>
-                    <Button onClick={toggleModal} pill={true} gradientMonochrome="purple">
+                    <Button onBlur={closeModal} onClick={toggleModal} pill={true} gradientMonochrome="purple">
                         view details
                     </Button>
 
@@ -105,6 +105,7 @@ const SingleToy = ({ toy }) => {
                                 </div>
                                 <div className="max-w-sm">
                                     <Card
+                                    className="w-3/4"
                                         imgAlt="Toy Photo"
                                         imgSrc={detailsData.photoLink && detailsData.photoLink}
                                     >
