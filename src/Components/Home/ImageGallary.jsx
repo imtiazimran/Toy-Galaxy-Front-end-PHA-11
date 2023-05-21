@@ -2,7 +2,7 @@
 const ImageGallary = () => {
     return (
         <div className="bg-gradient-to-tl from-rose-600 via-green-700 to-red-700">
-        <h1 className="flex justify-center p-5 text-5xl text-rose-500 font-bold">IMAGE GALLARY</h1>
+        <h1 className="flex justify-center p-5 text-5xl text-amber-300 font-bold">IMAGE GALLARY</h1>
             <div className="grid p-8 pt-10 grid-cols-2 md:grid-cols-4 gap-4 ">
                 <div className="grid gap-4">
                     <div>

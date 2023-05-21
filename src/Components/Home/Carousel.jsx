@@ -56,7 +56,6 @@ const Slider = () => {
                 />
                 <div className="carousel-overlay bg-gradient-to-bl from-transparent via-amber-500 to-slate-950 w-full h-full absolute flex flex-col  text-white p-4">
                     <h3 className="text-5xl  font-bold mb-2">Authentic toy's</h3>
-                    <p className="text-xl">Description 4</p>
                 </div>
             </div>
         </Carousel>

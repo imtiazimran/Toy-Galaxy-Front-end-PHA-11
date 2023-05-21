@@ -4,9 +4,9 @@ import { Carousel } from "flowbite-react";
 const NewArrivel = () => {
 
     return (
-        <div className="mt-10 md:pt-8 h-56">
+        <div className="mt-10 hidden md:block md:pt-8 h-56">
             <h1 className="flex justify-center p-5 text-5xl bg-gray-800  text-amber-300  font-bold">New Arrivel</h1>
-            <div className="grid  grid-cols-1 md:grid-cols-2 gap-4 sm:h-64 xl:h-80 2xl:h-96">
+            <div className="md:grid  grid-cols-1 md:grid-cols-2 gap-4 sm:h-64 xl:h-80 2xl:h-96">
 
                 <Carousel>
                     <img
