@@ -33,7 +33,7 @@ const AddToy = () => {
             details
         }
 
-        fetch('https://toy-market-server-liart.vercel.app/insertItem', {
+        fetch('http://localhost:9999/insertItem', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

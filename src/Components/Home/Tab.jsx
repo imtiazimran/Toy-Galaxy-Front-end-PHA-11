@@ -12,7 +12,7 @@ const Tab = () => {
     const [starWars, setStarWars] = useState([])
 
     useEffect(() => {
-        fetch('https://toy-market-server-liart.vercel.app/allToys')
+        fetch('http://localhost:9999/allToys')
             .then(res => res.json())
             .then(data => {
                 setMarvelToy(data[0]["Marvel Toys"])

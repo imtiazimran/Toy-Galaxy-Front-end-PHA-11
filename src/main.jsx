@@ -32,12 +32,12 @@ const router = createBrowserRouter([
       {
         path: "/allToys",
         element: <AllToys></AllToys>,
-        loader: () => fetch('https://toy-market-server-liart.vercel.app/insertItem')
+        loader: () => fetch('http://localhost:9999/insertItem')
       },
       {
         path: "/toyDetails/:id",
         element: <ViewDetails></ViewDetails>,
-        loader: ({params}) => fetch(`https://toy-market-server-liart.vercel.app/insertItem/${params.id}`)
+        loader: ({ params }) => fetch(`http://localhost:9999/insertItem/${params.id}`)
       },
       {
         path: "/myToys",
@@ -55,7 +55,7 @@ const router = createBrowserRouter([
   },
   {
     path: "*",
-    element:<ErrorPage></ErrorPage>
+    element: <ErrorPage></ErrorPage>
   }
 ]);
 

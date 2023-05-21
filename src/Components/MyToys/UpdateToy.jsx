@@ -17,12 +17,12 @@ const UpdateToy = ({ toy, onClose, editModalOpen, myToys, setMyToys }) => {
         details
     }
 
-    fetch(`https://toy-market-server-liart.vercel.app/insertItem/${toy._id}`,{
+    fetch(`http://localhost:9999/insertItem/${toy._id}`,{
         method:"PATCH",
         headers:{
             "content-type": "application/json"
         },
-        body: JSON.stringify({updatedValues})
+        body: JSON.stringify(updatedValues)
     })
     .then(res => res.json())
     .then(data =>{

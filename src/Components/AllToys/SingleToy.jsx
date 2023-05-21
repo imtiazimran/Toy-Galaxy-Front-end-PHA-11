@@ -3,13 +3,14 @@ import { Button, Card, Rating, Table } from "flowbite-react";
 import { useContext, useState } from "react";
 import { AuthContext } from "../Authorization/AuthProvider";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const SingleToy = ({ toy }) => {
 
     const { user } = useContext(AuthContext)
     const navigate = useNavigate()
-
+    const from = useLocation()
+    console.log(from)
     const [detailsData, setDetailsData] = useState({})
 
     const [modalOpen, setModalOpen] = useState(false);
@@ -44,7 +45,7 @@ const SingleToy = ({ toy }) => {
         _id
     } = toy
     const handleClick = (id) => {
-        fetch(`https://toy-market-server-liart.vercel.app/insertItem/${id}`)
+        fetch(`http://localhost:9999/insertItem/${id}`)
             .then(res => res.json())
             .then(data => setDetailsData(data))
     }
@@ -105,37 +106,37 @@ const SingleToy = ({ toy }) => {
                                         imgAlt="Toy Photo"
                                         imgSrc={detailsData.photoLink && detailsData.photoLink}
                                     >
-                                            
-                                            <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
-                                              Toy: {detailsData.name}
-                                            </h5>
-                                            <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
-                                              Seller: {detailsData.sellerName}
-                                            </h5>
-                                            <h5 className="text-xl  tracking-tight text-gray-900 dark:text-white">
-                                              Seller Email: {detailsData.sellarEmail}
-                                            </h5>
-                                            <p className="text-md  tracking-tight text-gray-900 dark:text-white">
-                                              Details: {detailsData.details}
-                                            </p>
-                                        <div className="mt-2.5 mb-5 flex items-center">
-                                        <Rating>
-                                        <Rating.Star />
-                                        <Rating.Star />
-                                        <Rating.Star />
-                                        <Rating.Star />
-                                        <Rating.Star filled={false} />
-                                        <p className="ml-2 text-sm font-medium text-gray-500 dark:text-gray-400">
-                                            {detailsData.rating}
+
+                                        <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                                            Toy: {detailsData.name}
+                                        </h5>
+                                        <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                                            Seller: {detailsData.sellerName}
+                                        </h5>
+                                        <h5 className="text-xl  tracking-tight text-gray-900 dark:text-white">
+                                            Seller Email: {detailsData.sellarEmail}
+                                        </h5>
+                                        <p className="text-md  tracking-tight text-gray-900 dark:text-white">
+                                            Details: {detailsData.details}
                                         </p>
-                                    </Rating>
+                                        <div className="mt-2.5 mb-5 flex items-center">
+                                            <Rating>
+                                                <Rating.Star />
+                                                <Rating.Star />
+                                                <Rating.Star />
+                                                <Rating.Star />
+                                                <Rating.Star filled={false} />
+                                                <p className="ml-2 text-sm font-medium text-gray-500 dark:text-gray-400">
+                                                    {detailsData.rating}
+                                                </p>
+                                            </Rating>
                                         </div>
                                         <div className="flex items-center gap-3 justify-between">
                                             <span className="text-3xl font-bold text-gray-900 dark:text-white">
-                                               $ {detailsData.price}
+                                                $ {detailsData.price}
                                             </span>
                                             <p>
-                                               Stock: <br /> {detailsData.qty}
+                                                Stock: <br /> {detailsData.qty}
                                             </p>
                                         </div>
                                     </Card>
