@@ -1,40 +1,68 @@
 import { Button } from "flowbite-react";
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "./AuthProvider";
+import { toast } from "react-toastify";
 
 
 const LoginForm = () => {
+  const navigate = useNavigate()
 
-  const {login, googleSingIn} = useContext(AuthContext)
+  const from = useLocation()
+  const destination = from?.state?.pathname || "/"
+
+  const { login, googleSingIn } = useContext(AuthContext)
 
   const [showPassword, setShowPassword] = useState(false);
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
 
-  const handleSubmit = e =>{
+  const handleSubmit = e => {
     e.preventDefault()
     const form = e.target;
     const email = form.email.value
     const password = form.password.value
-    console.log(form, email, password)
 
     login(email, password)
-    .then(res =>{
-      const user = res.user
-      console.log(user)
-    })
-    .catch(err => console.log(err))
+      .then(res => {
+        const user = res.user
+        toast.success(`Log In Success as: ${user.email}`)
+        navigate(destination)
+      })
+      .catch(err => {
+        if (err.code == "auth/wrong-password") {
+          toast.error('Wrong Password')
+        }
+        if (err.code == "auth/too-many-requests") {
+          toast.error("You Have Tried Too Much Try again Later")
+        }
+        if (err.code == "auth/user-not-found") {
+          toast.error('User Not Found Please Register First')
+        }
+        console.log(err.code)
+      })
   }
 
-  const continueWithGoogle = () =>{
+  const continueWithGoogle = () => {
     googleSingIn()
-    .then(res =>{
-      const user = res.user
-      console.log(user)
-    })
-    .catch(err => console.log(err))
+      .then(res => {
+        const user = res.user
+        toast.success(`Log In Success as: ${user.email}`)
+        navigate(destination)
+      })
+      .catch(err => {
+        if (err.code == "auth/wrong-password") {
+          toast.error('Wrong Password')
+        }
+        if (err.code == "auth/too-many-requests") {
+          toast.error("You Have Tried Too Much Try again Later")
+        }
+        if (err.code == "auth/user-not-found") {
+          toast.error('User Not Found Please Register First')
+        }
+        console.log(err.code)
+      })
   }
 
   return (
@@ -51,7 +79,7 @@ const LoginForm = () => {
                 Email
               </label>
               <input
-              name="email"
+                name="email"
                 className="w-full px-3 py-2 border border-gray-400 rounded focus:outline-none focus:border-blue-500"
                 id="email"
                 type="email"
@@ -67,7 +95,7 @@ const LoginForm = () => {
               </label>
               <div className="relative">
                 <input
-                name="password"
+                  name="password"
                   className="w-full px-3 py-2 border border-gray-400 rounded focus:outline-none focus:border-blue-500"
                   id="password"
                   type={showPassword ? "text" : "password"}
