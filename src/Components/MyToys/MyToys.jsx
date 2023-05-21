@@ -12,7 +12,7 @@ const MyToys = () => {
 
     useEffect(() => {
         if (user) {
-            fetch(`http://localhost:9999/myToys?email=${user.email}`)
+            fetch(`https://toy-market-server-liart.vercel.app/myToys?email=${user.email}`)
                 .then((res) => res.json())
                 .then((data) => setMyToys(data))
                 .catch((error) => {
@@ -33,7 +33,7 @@ const MyToys = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:9999/insertItem/${id}`, {
+                fetch(`https://toy-market-server-liart.vercel.app/insertItem/${id}`, {
                     method: "DELETE"
                 })
                     .then(res => res.json())

@@ -44,7 +44,7 @@ const SingleToy = ({ toy }) => {
         _id
     } = toy
     const handleClick = (id) => {
-        fetch(`http://localhost:9999/insertItem/${id}`)
+        fetch(`https://toy-market-server-liart.vercel.app/insertItem/${id}`)
             .then(res => res.json())
             .then(data => setDetailsData(data))
     }
