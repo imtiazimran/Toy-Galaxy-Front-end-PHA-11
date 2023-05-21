@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Authorization/AuthProvider";
-import { Button, Spinner, Table } from "flowbite-react";
+import { Button, Table } from "flowbite-react";
 import Swal from "sweetalert2";
 import UpdateToy from "./UpdateToy";
 
@@ -9,18 +9,19 @@ const MyToys = () => {
     const { user, isLoading } = useContext(AuthContext);
     const [editModalOpen, setEditModalOpen] = useState(false);
     const [selectedToy, setSelectedToy] = useState(null);
+    const [sortOrder, setSortOrder] = useState("asc")
 
     useEffect(() => {
         if (user) {
-            fetch(`http://localhost:9999/myToys?email=${user.email}`)
-                .then((res) => res.json())
-                .then((data) => setMyToys(data))
-                .catch((error) => {
-                    console.error("Error fetching toys:", error);
-                    setMyToys([]);
-                });
+          fetch(`http://localhost:9999/myToys?email=${user.email}&sort=${sortOrder}`)
+            .then((res) => res.json())
+            .then((data) => setMyToys(data))
+            .catch((error) => {
+              console.error("Error fetching toys:", error);
+              setMyToys([]);
+            });
         }
-    }, [user]);
+      }, [user, sortOrder]);
 
     const handleDelete = (id) => {
         Swal.fire({
@@ -65,9 +66,16 @@ const MyToys = () => {
         setEditModalOpen(false);
     };
 
+
+    const handleSort = () => {
+        setSortOrder(sortOrder === "asc" ? "desc" : "asc");
+    };
+
     return (
-        <div className="w-10/12 mx-auto mt-4">
+        <div className="w-10/12 mx-auto mt-4 ">
+
             <Table hoverable={true}>
+
                 <Table.Head>
                     <Table.HeadCell>
                         Product name
@@ -81,14 +89,19 @@ const MyToys = () => {
                     <Table.HeadCell>
                         Price
                     </Table.HeadCell>
-                    <Table.HeadCell>
-                        Edit
+                    <Table.HeadCell className="flex gap-7 justify-between items-center">
+                        <p>Edit</p>
+                        <Button onClick={handleSort} outline={true} gradientMonochrome="info">
+                            {
+                                sortOrder === "asc" ? "Ascending" : "Discending"
+                            }
+                        </Button>
                     </Table.HeadCell>
                 </Table.Head>
                 <Table.Body className="divide-y mx-auto">
                     {
                         isLoading ? <div className="text-center w-full flex justify-center">
-                        <img src="https://cdn.dribbble.com/users/1961926/screenshots/5660764/flash.gif" alt="" />
+                            <img src="https://cdn.dribbble.com/users/1961926/screenshots/5660764/flash.gif" alt="" />
                         </div>
                             : myToys.map((toy) => (
                                 <Table.Row key={toy._id} className="bg-white dark:border-gray-700 dark:bg-gray-800">
