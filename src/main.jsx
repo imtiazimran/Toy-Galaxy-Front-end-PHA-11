@@ -16,6 +16,7 @@ import ViewDetails from './Components/AllToys/ViewDetails.jsx';
 import MyToys from './Components/MyToys/MyToys.jsx';
 import ErrorPage from './Components/Home/Error/Error.jsx';
 import PriveteRoute from './Components/Authorization/PriveteRoute/PriveteRoute.jsx';
+import Blog from './Components/Home/Blog.jsx';
 
 const router = createBrowserRouter([
   {
@@ -52,7 +53,8 @@ const router = createBrowserRouter([
         element: <Registration></Registration>
       },
       {
-        
+        path: "/blogs",
+        element: <Blog></Blog>
       }
     ]
   },

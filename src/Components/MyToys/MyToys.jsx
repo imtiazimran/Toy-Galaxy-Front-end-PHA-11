@@ -66,7 +66,7 @@ const MyToys = () => {
     };
 
     return (
-        <div className="w-10/12 mx-auto">
+        <div className="w-10/12 mx-auto mt-4">
             <Table hoverable={true}>
                 <Table.Head>
                     <Table.HeadCell>
@@ -85,10 +85,10 @@ const MyToys = () => {
                         Edit
                     </Table.HeadCell>
                 </Table.Head>
-                <Table.Body className="divide-y">
+                <Table.Body className="divide-y mx-auto">
                     {
-                        isLoading ? <div className="text-center">
-                            <Spinner aria-label="Center-aligned spinner example" />
+                        isLoading ? <div className="text-center w-full flex justify-center">
+                        <img src="https://cdn.dribbble.com/users/1961926/screenshots/5660764/flash.gif" alt="" />
                         </div>
                             : myToys.map((toy) => (
                                 <Table.Row key={toy._id} className="bg-white dark:border-gray-700 dark:bg-gray-800">

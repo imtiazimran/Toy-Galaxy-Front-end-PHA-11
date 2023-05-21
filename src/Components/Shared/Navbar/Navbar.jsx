@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable no-unused-vars */
-import { Avatar, Button, Navbar } from 'flowbite-react';
+import { Avatar, Button, Navbar, Tooltip } from 'flowbite-react';
 import React, { useContext } from 'react';
 import { AuthContext } from '../../Authorization/AuthProvider';
 import { Link } from 'react-router-dom';
@@ -24,8 +24,9 @@ const Navigation = () => {
                 <img
                     src="https://flowbite.com/docs/images/logo.svg"
                     className="mr-3 h-6 sm:h-9"
-                    alt="Flowbite Logo"
+                    alt="Website Logo"
                 />
+
                 <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
                     ToyGalaxy
                 </span>
@@ -33,11 +34,17 @@ const Navigation = () => {
             <div className="flex md:order-2">
                 {
                     user ? <div className='flex gap-5 flex-row-reverse'>
-                        {user.photoURL ? (
-                            <Avatar img={user.photoURL} rounded={true} />
-                        ) : (
-                            <Avatar rounded={true} />
-                        )}
+                        <Tooltip
+                            content={user.displayName ? user.displayName : user.email }
+                            animation="duration-500"
+                        >
+                            {user.photoURL ? (
+                                <Avatar img={user.photoURL} rounded={true} />
+                            ) : (
+                                <Avatar rounded={true} />
+                            )}
+
+                        </Tooltip>
                         <Button onClick={singOut} gradientMonochrome="failure">
                             Log Out
                         </Button>

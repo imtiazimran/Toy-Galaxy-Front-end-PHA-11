@@ -2,7 +2,6 @@
 import { useContext } from "react";
 import { AuthContext } from "../AuthProvider";
 import { Navigate, useLocation } from "react-router-dom";
-import { Spinner } from "flowbite-react";
 
 
 const PriveteRoute = ({children}) => {
@@ -16,7 +15,7 @@ const PriveteRoute = ({children}) => {
     }
 
     if(isLoading){
-        return <div className="bg-white text-center"><Spinner aria-label="Center-aligned spinner example" /></div>
+        return <div className="bg-white text-center"><img src="https://cdn.dribbble.com/users/1961926/screenshots/5660764/flash.gif" alt="" /></div>
     }
 
     return <Navigate to="/login" state={from}></Navigate>;
