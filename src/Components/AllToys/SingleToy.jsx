@@ -3,12 +3,17 @@ import { Button, Card, Rating, Table } from "flowbite-react";
 import { useContext, useState } from "react";
 import { AuthContext } from "../Authorization/AuthProvider";
 import { toast } from "react-toastify";
-import { Navigate } from "react-router-dom";
+import {  useLocation, useNavigate } from "react-router-dom";
 
 const SingleToy = ({ toy }) => {
 
     const { user } = useContext(AuthContext)
     const [detailsData, setDetailsData] = useState({})
+
+    const navigate = useNavigate()
+
+    const location = useLocation()
+
 
     const [modalOpen, setModalOpen] = useState(false);
     const toggleModal = () => {
@@ -22,7 +27,7 @@ const SingleToy = ({ toy }) => {
                 position: toast.POSITION.TOP_CENTER
             });
             setTimeout(() => {
-                <Navigate to="/login"></Navigate>
+                navigate("/login", { state:  location })
             }, 3000);
         }
 

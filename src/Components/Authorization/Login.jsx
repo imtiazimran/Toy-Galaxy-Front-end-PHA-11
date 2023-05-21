@@ -11,7 +11,6 @@ import { toast } from "react-toastify";
 
 const LoginForm = () => {
   const navigate = useNavigate()
-
   const from = useLocation()
   const destination = from?.state?.pathname || "/"
 
