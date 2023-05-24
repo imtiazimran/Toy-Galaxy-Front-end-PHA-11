@@ -3,8 +3,11 @@ import { AuthContext } from "../Authorization/AuthProvider";
 import { Button, Table } from "flowbite-react";
 import Swal from "sweetalert2";
 import UpdateToy from "./UpdateToy";
+import { title } from "../../CustomHook/ChangeTitle";
 
 const MyToys = () => {
+    title('ToyGalaxy | My Toys')
+    
     const [myToys, setMyToys] = useState([]);
     const { user, isLoading } = useContext(AuthContext);
     const [editModalOpen, setEditModalOpen] = useState(false);
@@ -13,7 +16,7 @@ const MyToys = () => {
 
     useEffect(() => {
         if (user) {
-          fetch(`http://localhost:9999/myToys?email=${user.email}&sort=${sortOrder}`)
+          fetch(`https://toy-market-server-liart.vercel.app/myToys?email=${user.email}&sort=${sortOrder}`)
             .then((res) => res.json())
             .then((data) => setMyToys(data))
             .catch((error) => {
@@ -34,7 +37,7 @@ const MyToys = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:9999/insertItem/${id}`, {
+                fetch(`https://toy-market-server-liart.vercel.app/insertItem/${id}`, {
                     method: "DELETE"
                 })
                     .then(res => res.json())

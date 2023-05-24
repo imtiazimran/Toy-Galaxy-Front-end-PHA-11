@@ -2,9 +2,11 @@ import { Button } from "flowbite-react";
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "./AuthProvider";
+import { title } from "../../CustomHook/ChangeTitle";
 
 
 const Registration = () => {
+  title("ToyGalaxy | Registration")
   const [showPassword, setShowPassword] = useState(false);
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);

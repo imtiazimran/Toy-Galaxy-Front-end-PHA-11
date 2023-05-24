@@ -1,7 +1,8 @@
 import { Accordion } from 'flowbite-react';
-import React from 'react';
+import { title } from '../../CustomHook/ChangeTitle';
 
 const Blog = () => {
+    title("Blog")
     return (
         <div className='bg-white mt-5 w-10/12 mx-auto'>
             <Accordion>

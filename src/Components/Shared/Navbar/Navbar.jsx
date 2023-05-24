@@ -20,22 +20,24 @@ const Navigation = () => {
             fluid={true}
             rounded={true}
         >
-            <Navbar.Brand href="https://flowbite.com/">
-                <img
-                    src="https://flowbite.com/docs/images/logo.svg"
-                    className="mr-3 h-6 sm:h-9"
-                    alt="Website Logo"
-                />
+            <Navbar.Brand>
+                <Link className='flex' to="/">
+                    <img
+                        src="https://i.ibb.co/CsjdDHv/1866453-1-removebg-preview.png"
+                        className="mr-3 h-6 sm:h-9"
+                        alt="Website Logo"
+                    />
 
-                <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
-                    ToyGalaxy
-                </span>
+                    <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
+                        ToyGalaxy
+                    </span>
+                </Link>
             </Navbar.Brand>
             <div className="flex md:order-2">
                 {
                     user ? <div className='flex gap-5 flex-row-reverse'>
                         <Tooltip
-                            content={user.displayName ? user.displayName : user.email }
+                            content={user.displayName ? user.displayName : user.email}
                             animation="duration-500"
                         >
                             {user.photoURL ? (

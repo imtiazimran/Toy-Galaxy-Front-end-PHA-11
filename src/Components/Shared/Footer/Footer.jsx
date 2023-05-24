@@ -9,10 +9,10 @@ const Foot = () => {
             <div className="w-full text-center ">
                 <div className="w-full justify-between sm:flex sm:items-center sm:justify-between">
                     <Footer.Brand
-                        href="https://flowbite.com"
-                        src="https://flowbite.com/docs/images/logo.svg"
+                        href="#"
+                        src="https://i.ibb.co/CsjdDHv/1866453-1-removebg-preview.png"
                         alt="Flowbite Logo"
-                        name="Flowbite"
+                        name="ToyGalaxy"
                     />
                     <Footer.LinkGroup>
                         <Footer.Link href="#">
@@ -32,7 +32,7 @@ const Foot = () => {
                 <Footer.Divider />
                 <Footer.Copyright
                     href="#"
-                    by="Flowbite™"
+                    by="ToyGalaxy"
                     year={2022}
                 />
             </div>

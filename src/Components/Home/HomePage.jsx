@@ -7,12 +7,13 @@ import ToyBrandLogos from "./OurPartnars";
 import Tab from "./Tab";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { title } from "../../CustomHook/ChangeTitle";
 
 
 
 
 const HomePage = () => {
-
+        title("ToyGalaxy | Home")
     useEffect(() => {
         AOS.init({
             duration: 6000,

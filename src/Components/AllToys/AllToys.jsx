@@ -2,17 +2,19 @@ import SingleToy from "./SingleToy";
 import { Select, Table } from "flowbite-react";
 import { useEffect, useState } from "react";
 import { BiSearch } from 'react-icons/bi';
+import { title } from "../../CustomHook/ChangeTitle";
 
 
 
 const AllToys = () => {
+    title("ToyGalaxy | All Toys")
     const [addedToys, setAddedToys] = useState([])
     const [searchQuery, setSearchQuery] = useState("");
     const [isOpen, setIsOpen] = useState(false)
     const [dataLimit, setDataLimit] = useState('20')
 
     useEffect(()=>{
-        fetch(`http://localhost:9999/insertItem/${dataLimit}`)
+        fetch(`https://toy-market-server-liart.vercel.app/insertItem/${dataLimit}`)
         .then(res =>res.json())
         .then(data => setAddedToys(data))
     },[addedToys])

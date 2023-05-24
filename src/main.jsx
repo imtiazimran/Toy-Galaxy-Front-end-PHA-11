@@ -38,7 +38,7 @@ const router = createBrowserRouter([
       {
         path: "/toyDetails/:id",
         element: <ViewDetails></ViewDetails>,
-        loader: ({ params }) => fetch(`http://localhost:9999/insertItem/${params.id}`)
+        loader: ({ params }) => fetch(`https://toy-market-server-liart.vercel.app/insertItem/${params.id}`)
       },
       {
         path: "/myToys",

@@ -3,8 +3,10 @@ import { useContext } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import { AuthContext } from "../Authorization/AuthProvider";
+import { title } from "../../CustomHook/ChangeTitle";
 
 const AddToy = () => {
+    title("ToyGalaxy | Add Toy")
 
     const { user } = useContext(AuthContext)
 
@@ -33,7 +35,7 @@ const AddToy = () => {
             details
         }
 
-        fetch('http://localhost:9999/insertItem', {
+        fetch('https://toy-market-server-liart.vercel.app/insertItem', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

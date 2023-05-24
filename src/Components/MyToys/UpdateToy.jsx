@@ -17,7 +17,7 @@ const UpdateToy = ({ toy, onClose, editModalOpen, myToys, setMyToys }) => {
         details
     }
 
-    fetch(`http://localhost:9999/insertItem/${toy._id}`,{
+    fetch(`https://toy-market-server-liart.vercel.app/insertItem/${toy._id}`,{
         method:"PATCH",
         headers:{
             "content-type": "application/json"
