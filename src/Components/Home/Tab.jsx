@@ -22,7 +22,7 @@ const Tab = () => {
     }, [])
     return (
 // ----------------------------------------Tab Section------------------------------------------------------------
-        <div className='mt-20'>
+        <div data-aos="zoom-out-right" className='mt-20'>
             <h1 className="flex justify-center p-5 text-5xl bg-gray-800  text-amber-300  font-bold">Category</h1>
             <Tabs.Group
                 aria-label="Full width tabs"
@@ -32,7 +32,7 @@ const Tab = () => {
                 <Tabs.Item title="Marvel">
                     <div className=" grid grid-cols-1 md:grid-cols-3 max-w-6xl gap-10 mx-auto">
                         {
-                            marvelToy.map(toy => (
+                            marvelToy?.map(toy => (
                                 <Card className='p-4' key={toy._id} imgSrc={toy.picture}>
                                     <div className='flex justify-center items-center gap-4'>
                                         <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
@@ -60,7 +60,7 @@ const Tab = () => {
                 <Tabs.Item title="DC">
                     <div className=' grid grid-cols-1 md:grid-cols-3 max-w-6xl gap-10 mx-auto'>
                         {
-                            dcToy.map(toy => (
+                            dcToy?.map(toy => (
                                 <Card className='p-4' key={toy._id} imgSrc={toy.picture}>
                                     <div className='flex justify-center items-center gap-4'>
                                         <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
@@ -91,7 +91,7 @@ const Tab = () => {
                 <Tabs.Item title="StarWars">
                     <div className=' grid grid-cols-1 md:grid-cols-3 max-w-6xl gap-10 mx-auto'>
                         {
-                            starWars.map(toy => (
+                            starWars?.map(toy => (
                                 <Card className='p-4' key={toy._id} imgSrc={toy.picture}>
                                     <div className='flex justify-center items-center gap-4'>
                                         <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">

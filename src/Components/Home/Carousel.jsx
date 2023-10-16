@@ -4,7 +4,7 @@ import { Carousel } from "flowbite-react";
 
 const Slider = () => {
     return (
-        <div  className=" h-[44rem] hidden md:block relative">
+        <div data-aos="fade-up" className=" h-[44rem] hidden md:block relative">
         <Carousel slideInterval={5000}>
             <div
                 id="item1"

@@ -12,4 +12,5 @@ module.exports = {
   rules: {
     'react-refresh/only-export-components': 'warn',
   },
+  "eslint-disable-next-line no-unused-vars"
 }
