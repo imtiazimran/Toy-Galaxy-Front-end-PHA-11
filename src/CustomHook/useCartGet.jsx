@@ -5,7 +5,7 @@ const useCartGet = () => {
     const [cart, setCart] = useState([])
 
     useEffect(() => {
-        axios.get("http://localhost:9999/cart")
+        axios.get("https://toy-market-server-liart.vercel.app/cart")
             .then(res => {
                 setCart(res.data)
             })

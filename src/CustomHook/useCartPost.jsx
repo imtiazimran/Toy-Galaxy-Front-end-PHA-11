@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const useCartPost = (item) => {
-    axios.post("http://localhost:9999/cart", item)
+    axios.post("https://toy-market-server-liart.vercel.app/cart", item)
         .then(res => {
             console.log(res.data);
         })
