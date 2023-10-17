@@ -1,15 +1,19 @@
 /* eslint-disable react/no-unescaped-entities */
-/* eslint-disable no-unused-vars */
 import { Avatar, Button, Navbar, Tooltip } from 'flowbite-react';
 import React, { useContext } from 'react';
 import { AuthContext } from '../../Authorization/AuthProvider';
 import { Link } from 'react-router-dom';
 import ActiveLink from './ActiveLink';
+import { BiCart } from 'react-icons/bi';
 import './../../../App.css'
+import useCartGet from '../../../CustomHook/useCartGet';
 
 const Navigation = () => {
 
     const { user, logOut } = useContext(AuthContext)
+
+    const cartData = useCartGet()
+
 
     const singOut = () => {
         logOut()
@@ -35,7 +39,7 @@ const Navigation = () => {
             </Navbar.Brand>
             <div className="flex md:order-2">
                 {
-                    user ? <div className='flex gap-5 flex-row-reverse'>
+                    user ? <div className='flex gap-5 flex-row-reverse items-center'>
                         <Tooltip
                             content={user.displayName ? user.displayName : user.email}
                             animation="duration-500"
@@ -48,8 +52,9 @@ const Navigation = () => {
 
                         </Tooltip>
                         <Button onClick={singOut} gradientMonochrome="failure">
-                            Log Out
+                        Log Out
                         </Button>
+                        <Button className='flex btn'><BiCart className='text-2xl'/> <sup className='text-lg text-gray-100'>{cartData.length}</sup></Button>
                     </div>
                         : <Button gradientMonochrome="success">
                             <Link to="/login">Log In</Link>

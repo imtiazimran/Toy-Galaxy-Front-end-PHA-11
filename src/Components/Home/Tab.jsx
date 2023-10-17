@@ -1,9 +1,10 @@
-import { Card, Rating, Tabs } from 'flowbite-react';
+import { Button, Card, Rating, Tabs } from 'flowbite-react';
 import { useEffect, useState } from 'react';
 import ReactStarsRating from 'react-awesome-stars-rating';
+import useCartPost from '../../CustomHook/useCartPost';
 
 const Tab = () => {
-    
+
 
     const [marvelToy, setMarvelToy] = useState([])
 
@@ -21,7 +22,7 @@ const Tab = () => {
             })
     }, [])
     return (
-// ----------------------------------------Tab Section------------------------------------------------------------
+        // ----------------------------------------Tab Section------------------------------------------------------------
         <div data-aos="zoom-out-bottom" className='mt-72'>
             <h1 className="flex justify-center p-5 text-5xl bg-gray-800  text-amber-300  font-bold">Category</h1>
             <Tabs.Group
@@ -43,7 +44,15 @@ const Tab = () => {
                                         </p>
                                     </div>
                                     <div className='flex  justify-between items-center gap-4'>
-                                        <button className='btn btn-accent'>View Details</button>
+                                        <Button
+                                            onClick={() => useCartPost(toy)}
+                                            className="rounded-lg bg-cyan-700  px-2 py-1 text-center text-sm font-medium text-white hover:bg-cyan-800 focus:outline-none focus:ring-4 focus:ring-cyan-300 dark:bg-cyan-600 dark:hover:bg-cyan-700 dark:focus:ring-cyan-800"
+
+                                        >
+                                            <p>
+                                                Add to cart
+                                            </p>
+                                        </Button>
                                         <p className="font-normal text-yellow-400">
 
                                             <ReactStarsRating className="flex" value={toy.rating}></ReactStarsRating>
@@ -71,7 +80,15 @@ const Tab = () => {
                                         </p>
                                     </div>
                                     <div className='flex  justify-between items-center gap-4'>
-                                        <button className='btn btn-accent'>View Details</button>
+                                        <Button
+                                            onClick={() => useCartPost(toy)}
+                                            className="rounded-lg bg-cyan-700  px-2 py-1 text-center text-sm font-medium text-white hover:bg-cyan-800 focus:outline-none focus:ring-4 focus:ring-cyan-300 dark:bg-cyan-600 dark:hover:bg-cyan-700 dark:focus:ring-cyan-800"
+
+                                        >
+                                            <p>
+                                                Add to cart
+                                            </p>
+                                        </Button>
                                         <Rating>
                                             <Rating.Star />
                                             <Rating.Star />
@@ -102,8 +119,15 @@ const Tab = () => {
                                         </p>
                                     </div>
                                     <div className='flex  justify-between items-center gap-4'>
-                                        <button className='btn btn-accent'>View Details</button>
-                                        <Rating>
+                                        <Button
+                                            onClick={() => useCartPost(toy)}
+                                            className="rounded-lg bg-cyan-700 px-2 py-1 text-center text-sm font-medium text-white hover:bg-cyan-800 focus:outline-none focus:ring-4 focus:ring-cyan-300 dark:bg-cyan-600 dark:hover:bg-cyan-700 dark:focus:ring-cyan-800"
+
+                                        >
+                                            <p>
+                                                Add to cart
+                                            </p>
+                                        </Button> <Rating>
                                             <Rating.Star />
                                             <Rating.Star />
                                             <Rating.Star />
