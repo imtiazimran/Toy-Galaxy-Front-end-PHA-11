@@ -9,6 +9,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { title } from "../../CustomHook/ChangeTitle";
 import ContactUs from "./ContactUs";
+import PopulerProducts from "./PopulerProducts";
 
 
 
@@ -25,11 +26,12 @@ const HomePage = () => {
     return (
         <div className="w-10/12 mx-auto">
             <Slider></Slider>
-            <ImageGallary data-aos="fade-up" data-aos-delay="200"></ImageGallary>
-            <Tab data-aos="fade-up"></Tab>
             <NewArrivel data-aos="fade-up"></NewArrivel>
-            <ToyBrandLogos data-aos="fade-up"></ToyBrandLogos>
+            <Tab data-aos="fade-up"></Tab>
+            <PopulerProducts/>
+            <ImageGallary data-aos="fade-up" data-aos-delay="200"></ImageGallary>
             <ContactUs/>
+            <ToyBrandLogos data-aos="fade-up"></ToyBrandLogos>
         </div>
     );
 };

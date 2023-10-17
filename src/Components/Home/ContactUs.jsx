@@ -27,7 +27,7 @@ const ContactUs = () => {
 
             <h1 className="flex justify-center p-5 text-5xl bg-gray-800  text-amber-300  font-bold">Contact Us</h1>
 
-            <div className='flex justify-center'>
+            <div className='flex flex-col md:flex-row-reverse justify-center'>
                 <form ref={form} onSubmit={sendEmail} className="flex flex-1 max-w-md flex-col gap-4 py-10 ">
                     <div>
                         <div className="mb-2 block">

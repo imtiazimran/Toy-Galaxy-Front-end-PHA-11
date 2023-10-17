@@ -22,7 +22,7 @@ const Tab = () => {
     }, [])
     return (
 // ----------------------------------------Tab Section------------------------------------------------------------
-        <div data-aos="zoom-out-right" className='mt-20'>
+        <div data-aos="zoom-out-bottom" className='mt-72'>
             <h1 className="flex justify-center p-5 text-5xl bg-gray-800  text-amber-300  font-bold">Category</h1>
             <Tabs.Group
                 aria-label="Full width tabs"

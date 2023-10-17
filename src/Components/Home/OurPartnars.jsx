@@ -29,7 +29,7 @@ const ToyBrandLogos = () => {
     ];
 
     return (
-        <div data-aos="zoom-in-left" className="py-8 md:mt-72 bg-pink-900">
+        <div data-aos="zoom-in-left" className="py-8 bg-pink-900">
             <h1 className="flex justify-center p-5 text-5xl   text-amber-300  font-bold">Our Brand Partnars</h1>
             <div className="flex bg-white flex-wrap justify-center py-2 items-center">
                 {brandLogos.map((brand) => (

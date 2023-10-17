@@ -4,7 +4,7 @@ import { Carousel } from "flowbite-react";
 
 const Slider = () => {
     return (
-        <div data-aos="fade-up" className=" h-[44rem] hidden md:block relative">
+        <div data-aos="fade-up" className=" md:h-[44rem]  md:block relative">
         <Carousel slideInterval={5000}>
             <div
                 id="item1"
@@ -15,8 +15,8 @@ const Slider = () => {
                     className="w-full h-full "
                     alt="Carousel Item 1"
                 />
-                <div className="carousel-overlay bg-gradient-to-bl from-transparent via-blue-600 to-slate-950 w-full h-full absolute flex flex-col  text-white p-4">
-                    <h3 className="text-5xl  font-bold mb-2">Kid's Loves Our Toys</h3>
+                <div className="carousel-overlay bg-gradient-to-bl from-transparent via-blue-600 to-slate-950 w-full h-full absolute flex flex-col  text-white md:p-4">
+                    <h3 className="md:text-5xl  font-bold mb-2">Kid's Loves Our Toys</h3>
                 </div>
             </div>
             <div
@@ -28,8 +28,8 @@ const Slider = () => {
                     className="w-full h-full "
                     alt="Carousel Item 2"
                 />
-                <div className="carousel-overlay bg-gradient-to-bl from-transparent via-green-500 to-slate-950 w-full h-full absolute flex flex-col  text-white p-4">
-                    <h3 className="text-5xl  font-bold mb-2">All kind of toy's here</h3>
+                <div className="carousel-overlay bg-gradient-to-bl from-transparent via-green-500 to-slate-950 w-full h-full absolute flex flex-col  text-white md:p-4">
+                    <h3 className="md:text-5xl  font-bold mb-2">All kind of toy's here</h3>
                 </div>
             </div>
             <div
@@ -41,7 +41,7 @@ const Slider = () => {
                     className="w-full h-full "
                     alt="Carousel Item 3"
                 />
-                <div className="carousel-overlay bg-gradient-to-bl from-transparent via-red-600 to-slate-950 w-full h-full absolute flex flex-col  text-white p-4">
+                <div className="carousel-overlay bg-gradient-to-bl from-transparent via-red-600 to-slate-950 w-full h-full absolute flex flex-col  text-white md:p-4">
                     <h3 className="text-5xl  font-bold mb-2">Visit Our shop </h3>
                 </div>
             </div>
@@ -54,8 +54,8 @@ const Slider = () => {
                     className="w-full h-full "
                     alt="Carousel Item 4"
                 />
-                <div className="carousel-overlay bg-gradient-to-bl from-transparent via-amber-500 to-slate-950 w-full h-full absolute flex flex-col  text-white p-4">
-                    <h3 className="text-5xl  font-bold mb-2">Authentic toy's</h3>
+                <div className="carousel-overlay bg-gradient-to-bl from-transparent via-amber-500 to-slate-950 w-full h-full absolute flex flex-col  text-white md:p-4">
+                    <h3 className="md:text-5xl  font-bold mb-2">Authentic toy's</h3>
                 </div>
             </div>
         </Carousel>
