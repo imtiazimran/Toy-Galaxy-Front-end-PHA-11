@@ -17,6 +17,7 @@ import MyToys from './Components/MyToys/MyToys.jsx';
 import ErrorPage from './Components/Home/Error/Error.jsx';
 import PriveteRoute from './Components/Authorization/PriveteRoute/PriveteRoute.jsx';
 import Blog from './Components/Home/Blog.jsx';
+import ViewCart from './Components/Cart/ViewCart.jsx';
 
 const router = createBrowserRouter([
   {
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
       {
         path: "/myToys",
         element: <PriveteRoute><MyToys></MyToys></PriveteRoute>
+      },
+      {
+        path : "/cart",
+        element : <PriveteRoute><ViewCart/></PriveteRoute>
       },
       {
         path: "/login",

@@ -1,19 +1,19 @@
 /* eslint-disable react/no-unescaped-entities */
-import { Avatar, Button, Navbar, Tooltip } from 'flowbite-react';
+import { Avatar, Badge, Button, Navbar, Tooltip } from 'flowbite-react';
 import React, { useContext } from 'react';
 import { AuthContext } from '../../Authorization/AuthProvider';
 import { Link } from 'react-router-dom';
 import ActiveLink from './ActiveLink';
-import { BiCart } from 'react-icons/bi';
 import './../../../App.css'
 import useCartGet from '../../../CustomHook/useCartGet';
+import { HiShoppingCart } from 'react-icons/hi';
+import useCartPost from '../../../CustomHook/useCartPost';
 
 const Navigation = () => {
 
     const { user, logOut } = useContext(AuthContext)
 
-    const cartData = useCartGet()
-
+    const {cart} = useCartGet()
 
     const singOut = () => {
         logOut()
@@ -37,7 +37,18 @@ const Navigation = () => {
                     </span>
                 </Link>
             </Navbar.Brand>
-            <div className="flex md:order-2">
+            <div className="flex md:order-2 gap-4">
+                <Link to={"/cart"}>
+                    <Button
+                    >
+                        <HiShoppingCart className="mr-2 h-5 w-5" />
+                        <sup>
+                            <Badge color="info">
+                                {cart.length}
+                            </Badge>
+                        </sup>
+                    </Button>
+                </Link>
                 {
                     user ? <div className='flex gap-5 flex-row-reverse items-center'>
                         <Tooltip
@@ -52,9 +63,10 @@ const Navigation = () => {
 
                         </Tooltip>
                         <Button onClick={singOut} gradientMonochrome="failure">
-                        Log Out
+                            Log Out
                         </Button>
-                        <Button className='flex btn'><BiCart className='text-2xl'/> <sup className='text-lg text-gray-100'>{cartData.length}</sup></Button>
+
+
                     </div>
                         : <Button gradientMonochrome="success">
                             <Link to="/login">Log In</Link>

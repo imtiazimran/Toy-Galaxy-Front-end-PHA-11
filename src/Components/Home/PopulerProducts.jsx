@@ -1,11 +1,14 @@
 import axios from 'axios';
 import { Button, Card } from 'flowbite-react';
 import ReactStarsRating from 'react-awesome-stars-rating';
+import { HiShoppingCart } from 'react-icons/hi';
 import React, { useEffect, useState } from 'react';
 import useCartPost from '../../CustomHook/useCartPost';
 
 const PopulerProducts = () => {
     const [populerCollection, setPopulerCollection] = useState([])
+
+    const { addToCart, loading } = useCartPost()
 
     useEffect(() => {
         axios.get('https://toy-market-server-liart.vercel.app/allToys')
@@ -30,14 +33,13 @@ const PopulerProducts = () => {
     return (
         <div className='py-10'>
             <h1 className="flex justify-center p-5 text-5xl bg-gray-800  text-amber-300  font-bold">Populer Items</h1>
-
             <div className='grid grid-cols-1 md:grid-cols-3 max-w-6xl gap-10 mx-auto py-10'>
                 {
                     populerCollection.map(item => (
                         <Card
                             className='p-4'
                             imgAlt="Apple Watch Series 7 in colors pink, silver, and black"
-                            imgSrc={item.image}
+                            imgSrc={loading ? "https://cdn.dribbble.com/users/1961926/screenshots/5660764/flash.gif" : item.image}
                         >
                             <a href="#">
                                 <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
@@ -60,12 +62,11 @@ const PopulerProducts = () => {
                                     ${item.price}
                                 </span>
                                 <Button
-                                    onClick={() => useCartPost(item)}
-                                    className="rounded-lg bg-cyan-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-cyan-800 focus:outline-none focus:ring-4 focus:ring-cyan-300 dark:bg-cyan-600 dark:hover:bg-cyan-700 dark:focus:ring-cyan-800"
-                                    
+                                    onClick={() => addToCart(item)}
                                 >
+                                    <HiShoppingCart className="mr-2 h-5 w-5" />
                                     <p>
-                                        Add to cart
+                                        Buy now
                                     </p>
                                 </Button>
                             </div>
@@ -74,6 +75,7 @@ const PopulerProducts = () => {
                 }
 
             </div>
+
         </div>
     );
 };

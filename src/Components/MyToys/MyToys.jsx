@@ -42,6 +42,7 @@ const MyToys = () => {
                 })
                     .then(res => res.json())
                     .then(data => {
+                        console.log(data);
                         if (data.deletedCount > 0) {
                             const itemsAfterDelete = myToys.filter(toy => toy._id !== id);
                             setMyToys(itemsAfterDelete);

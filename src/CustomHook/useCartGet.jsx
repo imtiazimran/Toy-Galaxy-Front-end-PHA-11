@@ -3,15 +3,17 @@ import React, { useEffect, useState } from 'react';
 
 const useCartGet = () => {
     const [cart, setCart] = useState([])
-
+    const [loading, setLoading] = useState(false)
     useEffect(() => {
-        axios.get("https://toy-market-server-1060um1oj-toygalaxy.vercel.app/cart")
+        setLoading(true)
+        axios.get("https://toy-market-server-jvo2uifn4-toygalaxy.vercel.app/cart")
             .then(res => {
+                setLoading(false)
                 setCart(res.data)
             })
-    }, [cart])
+    }, [])
 
-    return cart; // Return the cart data from the hook
+    return { cart, loading }; // Return the cart data from the hook
 };
 
 export default useCartGet; // Export the hook
