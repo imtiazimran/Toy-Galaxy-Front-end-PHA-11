@@ -9,7 +9,7 @@ const useCartGet = () => {
     const [loading, setLoading] = useState(false)
     useEffect(() => {
         setLoading(true)
-        axios.get(`http://localhost:9999/cart/${user.email}`)
+        axios.get(`https://toy-market-server-nvegs8v2y-toygalaxy.vercel.app/cart/${user.email}`)
             .then(res => {
                 setLoading(false)
                 setCart(res.data)

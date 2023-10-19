@@ -10,7 +10,7 @@ const useCartPost = () => {
   const addToCart = (item) => {
     setLoading(true);
     axios
-      .post("http://localhost:9999/cart", { ...item, qty: 1, user: user.email })
+      .post("https://toy-market-server-nvegs8v2y-toygalaxy.vercel.app/cart", { ...item, qty: 1, user: user.email })
       .then((res) => {
         if (res.data.acknowledged) {
           setLoading(false);

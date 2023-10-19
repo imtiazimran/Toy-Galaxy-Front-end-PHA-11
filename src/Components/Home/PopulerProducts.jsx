@@ -49,7 +49,6 @@ const PopulerProducts = () => {
                                 </h5>
                             </a>
                             <div className="mb-5 mt-2.5 flex items-center">
-
                                 <ReactStarsRating className="flex" value={populerCollection.rating} />
                                 <span className="ml-3 mr-2 rounded bg-cyan-100 px-2.5 py-0.5 text-xs font-semiboldtext-cyan-800 dark:bg-cyan-200 dark:text-cyan-800">
                                     <p>

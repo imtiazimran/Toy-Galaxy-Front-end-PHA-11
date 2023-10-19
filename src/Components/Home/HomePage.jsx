@@ -10,6 +10,8 @@ import 'aos/dist/aos.css';
 import { title } from "../../CustomHook/ChangeTitle";
 import ContactUs from "./ContactUs";
 import PopulerProducts from "./PopulerProducts";
+import FromSellers from "./FromSellers";
+import Review from "./Review";
 
 
 
@@ -29,8 +31,10 @@ const HomePage = () => {
             <NewArrivel data-aos="fade-up"></NewArrivel>
             <Tab data-aos="fade-up"></Tab>
             <PopulerProducts/>
+            <FromSellers/>
             <ImageGallary data-aos="fade-up" data-aos-delay="200"></ImageGallary>
             <ContactUs/>
+            <Review/>
             <ToyBrandLogos data-aos="fade-up"></ToyBrandLogos>
         </div>
     );

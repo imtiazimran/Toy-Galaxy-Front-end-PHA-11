@@ -17,7 +17,7 @@ const AllToys = () => {
         fetch(`https://toy-market-server-liart.vercel.app/insertItem/${dataLimit}`)
         .then(res =>res.json())
         .then(data => setAddedToys(data))
-    },[addedToys, dataLimit])
+    },[dataLimit])
 
     const openSearch = () => setIsOpen(!isOpen)
     // Filter toys based on search query
