@@ -7,7 +7,6 @@ import ActiveLink from './ActiveLink';
 import './../../../App.css'
 import useCartGet from '../../../CustomHook/useCartGet';
 import { HiShoppingCart } from 'react-icons/hi';
-import useCartPost from '../../../CustomHook/useCartPost';
 
 const Navigation = () => {
 
@@ -18,7 +17,6 @@ const Navigation = () => {
     const singOut = () => {
         logOut()
     }
-
     return (
         <Navbar
             fluid={true}
