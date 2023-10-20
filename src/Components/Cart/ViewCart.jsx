@@ -38,56 +38,64 @@ const ViewCart = () => {
     };
 
     return (
-        <div className="overflow-x-auto">
+        <div>
             {
-                loading ? <div className="text-center w-full flex justify-center">
-                    <img src="https://cdn.dribbble.com/users/1961926/screenshots/5660764/flash.gif" alt="" />
+                cart.length === 0 ? <div className="text-center w-full flex justify-center py-5 bg-white">
+                    <img src="https://mir-s3-cdn-cf.behance.net/projects/404/95974e121862329.Y3JvcCw5MjIsNzIxLDAsMTM5.png" alt="" />
                 </div>
                     :
-                    <Table className='table-auto' hoverable>
-                        <Table.Head>
-                            <Table.HeadCell className="p-4">
-                                <Checkbox />
-                            </Table.HeadCell>
-                            <Table.HeadCell>
-                                Product name
-                            </Table.HeadCell>
-                            <Table.HeadCell>
-                                Quantity
-                            </Table.HeadCell>
-                            <Table.HeadCell>
-                                Price
-                            </Table.HeadCell>
-                            <Table.HeadCell>
-                                Action
-                            </Table.HeadCell>
-                        </Table.Head>
-                        <Table.Body className="divide-y">
-                            {
-                                cart?.map(item => (
-                                    <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
-                                        <Table.Cell className="p-4">
-                                            <Avatar img={item.image || item.picture} />
-                                        </Table.Cell>
-                                        <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                                            {item.name || item.toy_name}
-                                        </Table.Cell>
-                                        <Table.Cell>
-                                            {item.qty}
-                                        </Table.Cell>
-                                        <Table.Cell>
-                                            ${item.price}
-                                        </Table.Cell>
-                                        <Table.Cell>
-                                            <Button onClick={() => handleDelete(item)} gradientMonochrome="failure">
-                                                <BiTrashAlt />
-                                            </Button>
-                                        </Table.Cell>
-                                    </Table.Row>
-                                ))
-                            }
-                        </Table.Body>
-                    </Table>
+                    <div className="overflow-x-auto">
+                        {
+                            loading ? <div className="text-center w-full flex justify-center">
+                                <img src="https://cdn.dribbble.com/users/1961926/screenshots/5660764/flash.gif" alt="" />
+                            </div>
+                                :
+                                <Table className='table-auto' hoverable>
+                                    <Table.Head>
+                                        <Table.HeadCell className="p-4">
+                                            <Checkbox />
+                                        </Table.HeadCell>
+                                        <Table.HeadCell>
+                                            Product name
+                                        </Table.HeadCell>
+                                        <Table.HeadCell>
+                                            Quantity
+                                        </Table.HeadCell>
+                                        <Table.HeadCell>
+                                            Price
+                                        </Table.HeadCell>
+                                        <Table.HeadCell>
+                                            Action
+                                        </Table.HeadCell>
+                                    </Table.Head>
+                                    <Table.Body className="divide-y">
+                                        {
+                                            cart?.map(item => (
+                                                <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
+                                                    <Table.Cell className="p-4">
+                                                        <Avatar img={item.image || item.picture} />
+                                                    </Table.Cell>
+                                                    <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
+                                                        {item.name || item.toy_name}
+                                                    </Table.Cell>
+                                                    <Table.Cell>
+                                                        {item.qty}
+                                                    </Table.Cell>
+                                                    <Table.Cell>
+                                                        ${item.price}
+                                                    </Table.Cell>
+                                                    <Table.Cell>
+                                                        <Button onClick={() => handleDelete(item)} gradientMonochrome="failure">
+                                                            <BiTrashAlt />
+                                                        </Button>
+                                                    </Table.Cell>
+                                                </Table.Row>
+                                            ))
+                                        }
+                                    </Table.Body>
+                                </Table>
+                        }
+                    </div>
             }
         </div>
     );

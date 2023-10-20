@@ -14,11 +14,13 @@ const Review = () => {
             })
     }, [])
     return (
-        <div data-aos="fade-up" className=" md:h-[500px]">
-            <Carousel pauseOnHover>
+        <div data-aos="fade-up">
+        <h1 className="flex justify-center p-5 text-5xl bg-gray-800  text-amber-300  font-bold"> Customar Review</h1>
+        <div className=" h-[500px] md:w-1/3 mx-auto my-14">
+             <Carousel pauseOnHover>
                 {
                     review.map(item => (
-                        <div className="flex w-1/3 h-full items-center justify-center bg-slate-800 dark:text-white">
+                        <div className="flex  h-full items-center justify-center bg-slate-800 dark:text-white">
                             <Card>
                                 <div className="flex flex-col items-center pb-10">
                                     <Avatar rounded={true} />
@@ -33,6 +35,7 @@ const Review = () => {
                     ))
                 }
             </Carousel>
+        </div>
         </div>
     );
 };

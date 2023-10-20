@@ -7,18 +7,20 @@ import ActiveLink from './ActiveLink';
 import './../../../App.css'
 import useCartGet from '../../../CustomHook/useCartGet';
 import { HiShoppingCart } from 'react-icons/hi';
+import { BiExit } from 'react-icons/bi';
 
 const Navigation = () => {
 
     const { user, logOut } = useContext(AuthContext)
 
-    const {cart} = useCartGet()
+    const { cart } = useCartGet()
 
     const singOut = () => {
         logOut()
     }
     return (
         <Navbar
+        className='mb-5'
             fluid={true}
             rounded={true}
         >
@@ -35,17 +37,18 @@ const Navigation = () => {
                     </span>
                 </Link>
             </Navbar.Brand>
-            <div className="flex md:order-2 gap-4">
+            <div className="flex md:order-2 gap-4 justify-center items-center">
                 <Link to={"/cart"}>
-                    <Button
+                    <div
+                    className='flex items-center justify-center'
                     >
-                        <HiShoppingCart className="mr-2 h-5 w-5" />
+                    <HiShoppingCart className=" md:h-5 md:w-5" />
                         <sup>
-                            <Badge color="info">
+                            <span color="info">
                                 {cart.length}
-                            </Badge>
+                            </span>
                         </sup>
-                    </Button>
+                    </div>
                 </Link>
                 {
                     user ? <div className='flex gap-5 flex-row-reverse items-center'>
@@ -60,9 +63,12 @@ const Navigation = () => {
                             )}
 
                         </Tooltip>
-                        <Button onClick={singOut} gradientMonochrome="failure">
-                            Log Out
-                        </Button>
+
+                        <Tooltip content={"Log Out"} >
+                            <div onClick={singOut} gradientMonochrome="failure">
+                                <BiExit />
+                            </div>
+                        </Tooltip>
 
 
                     </div>

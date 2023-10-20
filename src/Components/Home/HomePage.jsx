@@ -12,6 +12,7 @@ import ContactUs from "./ContactUs";
 import PopulerProducts from "./PopulerProducts";
 import FromSellers from "./FromSellers";
 import Review from "./Review";
+import VideoSlide from "./VideoSlide";
 
 
 
@@ -35,6 +36,7 @@ const HomePage = () => {
             <ImageGallary data-aos="fade-up" data-aos-delay="200"></ImageGallary>
             <ContactUs/>
             <Review/>
+            <VideoSlide/>
             <ToyBrandLogos data-aos="fade-up"></ToyBrandLogos>
         </div>
     );
