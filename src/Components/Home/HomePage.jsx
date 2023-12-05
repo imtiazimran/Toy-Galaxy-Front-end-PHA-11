@@ -13,6 +13,7 @@ import PopulerProducts from "./PopulerProducts";
 import FromSellers from "./FromSellers";
 import Review from "./Review";
 import VideoSlide from "./VideoSlide";
+import FAQ from "./FAQ";
 
 
 
@@ -38,6 +39,7 @@ const HomePage = () => {
             <Review/>
             <VideoSlide/>
             <ToyBrandLogos data-aos="fade-up"></ToyBrandLogos>
+            <FAQ/>
         </div>
     );
 };

@@ -4,6 +4,7 @@ import { BiTrashAlt } from 'react-icons/bi';
 import useCartGet from '../../CustomHook/useCartGet';
 import Swal from 'sweetalert2';
 import axios from 'axios';
+import Rezorpay from '../PaymentGetway/Rezorpay';
 
 const ViewCart = () => {
 
@@ -37,6 +38,9 @@ const ViewCart = () => {
         });
     };
 
+    console.log();
+    const totalAmount = cart.reduce((acc, current) => acc + (parseInt(current.price) * parseInt(current.qty)), 0);
+    console.log(totalAmount);
     return (
         <div>
             {
@@ -53,7 +57,7 @@ const ViewCart = () => {
                                 <Table className='table-auto' hoverable>
                                     <Table.Head>
                                         <Table.HeadCell className="p-4">
-                                            <Checkbox />
+                                            <Rezorpay amount={totalAmount} />
                                         </Table.HeadCell>
                                         <Table.HeadCell>
                                             Product name
@@ -93,6 +97,7 @@ const ViewCart = () => {
                                             ))
                                         }
                                     </Table.Body>
+
                                 </Table>
                         }
                     </div>

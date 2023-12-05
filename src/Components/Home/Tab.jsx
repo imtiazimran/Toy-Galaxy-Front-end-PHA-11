@@ -2,6 +2,7 @@ import { Button, Card, Rating, Tabs } from 'flowbite-react';
 import { useEffect, useState } from 'react';
 import ReactStarsRating from 'react-awesome-stars-rating';
 import useCartPost from '../../CustomHook/useCartPost';
+import { HiShoppingCart } from 'react-icons/hi';
 
 const Tab = () => {
 
@@ -34,8 +35,8 @@ const Tab = () => {
                             <div className=" grid grid-cols-1 md:grid-cols-3 max-w-6xl gap-10 mx-auto">
                                 {
                                     allToys.filter(item => item.category === "marvel")?.map(toy => (
-                                        <Card className='p-4' key={toy._id} imgSrc={toy.picture}>
-                                            <div className='flex justify-center items-center gap-4'>
+                                        <Card key={toy._id} imgSrc={toy.picture}>
+                                            <div className='flex justify-center div-1 items-center gap-4'>
                                                 <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                                                     {toy.toy_name}
                                                 </h5>
@@ -43,20 +44,23 @@ const Tab = () => {
                                                     {toy.price}
                                                 </p>
                                             </div>
-                                            <div className='flex  justify-between items-center gap-4'>
+                                            <div className='flex justify-between div-2 items-center gap-4'>
                                                 <Button
                                                     onClick={() => addToCart(toy)}
-                                                    className="rounded-lg bg-cyan-700  px-2 py-1 text-center text-sm font-medium text-white hover:bg-cyan-800 focus:outline-none focus:ring-4 focus:ring-cyan-300 dark:bg-cyan-600 dark:hover:bg-cyan-700 dark:focus:ring-cyan-800"
-
                                                 >
+                                                    <HiShoppingCart className="mr-2 h-5 w-5" />
                                                     <p>
-                                                        Add to cart
+                                                        Buy now
                                                     </p>
                                                 </Button>
-                                                <p className="font-normal text-yellow-400">
-
-                                                    <ReactStarsRating className="flex" value={toy.rating}></ReactStarsRating>
-                                                </p>
+                                                <div className="mb-5 mt-2.5 flex items-center">
+                                                    <ReactStarsRating className="flex w-28" value={toy.rating} />
+                                                    <span className="ml-3 mr-2 rounded bg-cyan-100 px-2.5 py-0.5 text-xs font-semiboldtext-cyan-800 dark:bg-cyan-200 dark:text-cyan-800">
+                                                        <p>
+                                                            {toy.rating}
+                                                        </p>
+                                                    </span>
+                                                </div>
                                             </div>
                                         </Card>
                                     ))
@@ -82,23 +86,20 @@ const Tab = () => {
                                             <div className='flex  justify-between items-center gap-4'>
                                                 <Button
                                                     onClick={() => addToCart(toy)}
-                                                    className="rounded-lg bg-cyan-700  px-2 py-1 text-center text-sm font-medium text-white hover:bg-cyan-800 focus:outline-none focus:ring-4 focus:ring-cyan-300 dark:bg-cyan-600 dark:hover:bg-cyan-700 dark:focus:ring-cyan-800"
-
                                                 >
+                                                    <HiShoppingCart className="mr-2 h-5 w-5" />
                                                     <p>
-                                                        Add to cart
+                                                        Buy now
                                                     </p>
                                                 </Button>
-                                                <Rating>
-                                                    <Rating.Star />
-                                                    <Rating.Star />
-                                                    <Rating.Star />
-                                                    <Rating.Star />
-                                                    <Rating.Star filled={false} />
-                                                    <p className="ml-2 text-sm font-medium text-gray-500 dark:text-gray-400">
-                                                        {toy.rating}
-                                                    </p>
-                                                </Rating>
+                                                <div className="mb-5 mt-2.5 flex items-center">
+                                                    <ReactStarsRating className="flex w-28" value={toy.rating} />
+                                                    <span className="ml-3 mr-2 rounded bg-cyan-100 px-2.5 py-0.5 text-xs font-semiboldtext-cyan-800 dark:bg-cyan-200 dark:text-cyan-800">
+                                                        <p>
+                                                            {toy.rating}
+                                                        </p>
+                                                    </span>
+                                                </div>
                                             </div>
                                         </Card>
                                     ))
@@ -121,22 +122,20 @@ const Tab = () => {
                                             <div className='flex  justify-between items-center gap-4'>
                                                 <Button
                                                     onClick={() => addToCart(toy)}
-                                                    className="rounded-lg bg-cyan-700 px-2 py-1 text-center text-sm font-medium text-white hover:bg-cyan-800 focus:outline-none focus:ring-4 focus:ring-cyan-300 dark:bg-cyan-600 dark:hover:bg-cyan-700 dark:focus:ring-cyan-800"
-
                                                 >
+                                                    <HiShoppingCart className="mr-2 h-5 w-5" />
                                                     <p>
-                                                        Add to cart
+                                                        Buy now
                                                     </p>
-                                                </Button> <Rating>
-                                                    <Rating.Star />
-                                                    <Rating.Star />
-                                                    <Rating.Star />
-                                                    <Rating.Star />
-                                                    <Rating.Star filled={false} />
-                                                    <p className="ml-2 text-sm font-medium text-gray-500 dark:text-gray-400">
-                                                        {toy.rating}
-                                                    </p>
-                                                </Rating>
+                                                </Button>
+                                                <div className="mb-5 mt-2.5 flex items-center">
+                                                    <ReactStarsRating className="flex w-28" value={toy.rating} />
+                                                    <span className="ml-3 mr-2 rounded bg-cyan-100 px-2.5 py-0.5 text-xs font-semiboldtext-cyan-800 dark:bg-cyan-200 dark:text-cyan-800">
+                                                        <p>
+                                                            {toy.rating}
+                                                        </p>
+                                                    </span>
+                                                </div>
                                             </div>
                                         </Card>
                                     ))
