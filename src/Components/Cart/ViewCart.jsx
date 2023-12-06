@@ -38,20 +38,20 @@ const ViewCart = () => {
         });
     };
 
-    console.log();
     const totalAmount = cart.reduce((acc, current) => acc + (parseInt(current.price) * parseInt(current.qty)), 0);
     console.log(totalAmount);
     return (
         <div>
             {
-                cart.length === 0 ? <div className="text-center w-full flex justify-center py-5 bg-white">
-                    <img src="https://mir-s3-cdn-cf.behance.net/projects/404/95974e121862329.Y3JvcCw5MjIsNzIxLDAsMTM5.png" alt="" />
+                loading ? <div className="text-center w-full flex justify-center">
+                    <img src="https://cdn.dribbble.com/users/1961926/screenshots/5660764/flash.gif" alt="" />
                 </div>
                     :
                     <div className="overflow-x-auto">
                         {
-                            loading ? <div className="text-center w-full flex justify-center">
-                                <img src="https://cdn.dribbble.com/users/1961926/screenshots/5660764/flash.gif" alt="" />
+
+                            cart.length === 0 ? <div className="text-center w-full flex justify-center py-5 bg-white">
+                                <img src="https://mir-s3-cdn-cf.behance.net/projects/404/95974e121862329.Y3JvcCw5MjIsNzIxLDAsMTM5.png" alt="" />
                             </div>
                                 :
                                 <Table className='table-auto' hoverable>

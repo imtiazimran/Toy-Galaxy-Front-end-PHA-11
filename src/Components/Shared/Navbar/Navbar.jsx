@@ -13,14 +13,14 @@ const Navigation = () => {
 
     const { user, logOut } = useContext(AuthContext)
 
-    const { cart } = useCartGet()
+    const { cart, loading } = useCartGet()
 
     const singOut = () => {
         logOut()
     }
     return (
         <Navbar
-        className='mb-5'
+            className='mb-5'
             fluid={true}
             rounded={true}
         >
@@ -38,18 +38,22 @@ const Navigation = () => {
                 </Link>
             </Navbar.Brand>
             <div className="flex md:order-2 gap-4 justify-center items-center">
-                <Link to={"/cart"}>
+                {
+                    loading ? <div>Loading...</div> :
+                    <Link to={"/cart"}>
                     <div
-                    className='flex items-center justify-center'
-                    >
-                    <HiShoppingCart className=" md:h-5 md:w-5" />
-                        <sup>
-                            <span color="info">
-                                {cart.length}
-                            </span>
-                        </sup>
-                    </div>
-                </Link>
+
+                                className='flex items-center justify-center'
+                            >
+                                <HiShoppingCart className=" md:h-5 md:w-5" />
+                                <sup>
+                                    <span color="info">
+                                        {cart.length}
+                                    </span>
+                                </sup>
+                            </div>
+                        </Link>
+                }
                 {
                     user ? <div className='flex gap-5 flex-row-reverse items-center'>
                         <Tooltip
